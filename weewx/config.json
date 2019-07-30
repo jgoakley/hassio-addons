@@ -28,5 +28,5 @@
     "mqttUser": "str",
     "mqttPassword": "str"
   },
-  "devices": [ "/dev/bus/usb/001/004:/dev/bus/usb/001/004:rwm" ]
+  "devices": [ "/dev/bus/usb:/dev/bus/usb:rwm" ]
 }
