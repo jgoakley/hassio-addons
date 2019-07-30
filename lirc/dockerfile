@@ -1,5 +1,5 @@
 ARG BUILD_FROM
-FROM raspbian/stretch:latest
+FROM raspbian/jessie:latest
 
 # Default ENV
 ENV LANG C.UTF-8

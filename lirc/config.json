@@ -1,6 +1,6 @@
 {
   "name": "LIRC",
-  "version": "0.26",
+  "version": "0.27",
   "slug": "hassio_lirc",
   "description": "Hassio Add On for LIRC",
   "arch": [ "armhf" ],
