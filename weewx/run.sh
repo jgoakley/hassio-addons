@@ -19,7 +19,7 @@ sed -i '/INSERT_SERVER_URL_HERE/ a \
 \ \ \ \ \ \ \ \ unit_system = US\
 ' /home/weewx/weewx.conf
 
-sed -i 's/INSERT_SERVER_URL_HERE/mqtt:\/\/${MQTTUSER}:${MQTTPASSWORD}@homeassistant:1883/g' /home/weewx/weewx.conf
+sed -i 's/INSERT_SERVER_URL_HERE/mqtt:\/\/'$MQTTUSER':'$MQTTPASSWORD'homeassistant:1883/g' /home/weewx/weewx.conf
 
 sed -i 's/archive_interval = 300/archive_interval = 60/g' /home/weewx/weewx.conf
 
