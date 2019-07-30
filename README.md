@@ -13,9 +13,9 @@ https://github.com/jgoakley/hassio-addons
 
 ## Add-ons provided by this repository
 
-### [LIRC][addon-lirc]
+### [LIRC][hassio-addon-lirc]
 
 ![Supports armhf Architecture][dropbox-sync-armhf-shield]
 ![Docker Pulls][lirc-pulls-shield]
 
-### [LIRC][addon-weewx]
+### [LIRC][hassio-addon-weewx]
