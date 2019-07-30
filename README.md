@@ -38,7 +38,7 @@ Uses the Linux Infrared Remote Control Library and MQTT to send and receive infr
 ## WeeWX
 Uses the WeeWX Library and MQTT to receive data from a weather station.
 
-## NOTE: In the config.json file for this add-on I am hardcoding the usb device: /dev/bus/usb/001/004. 
+### NOTE: In the config.json file for this add-on I am hardcoding the usb device: /dev/bus/usb/001/004. 
 I think the easiest way to find out what USB device your weather station is, is to use the "lsusb" command in an ssh session. If you only get a list of hardware ID's you can use this website to look up the vendor: https://www.the-sz.com/products/usbid/index.php Acurite weather stations are made by "Chaney Instrument Co." so that's who showed up as the vendor for me.
 
 ### Example configuration:
