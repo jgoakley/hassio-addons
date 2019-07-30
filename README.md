@@ -17,3 +17,5 @@ https://github.com/jgoakley/hassio-addons
 
 ![Supports armhf Architecture][dropbox-sync-armhf-shield]
 ![Docker Pulls][lirc-pulls-shield]
+
+### [LIRC][addon-weewx]
