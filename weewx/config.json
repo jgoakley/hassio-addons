@@ -1,0 +1,32 @@
+{
+  "name": "WeeWX",
+  "version": "0.56",
+  "slug": "hassio_weewx",
+  "description": "Add-on for connecting weather stations to Hass.io using WeeWX and MQTT",
+  "arch": [ "armhf", "armv7", "aarch64", "amd64", "i386" ],
+  "startup": "before",
+  "boot": "auto",
+  "options": {
+    "driver": null,
+    "latitude": null,
+    "longitude": null,
+    "altitude": null,
+    "altitudeUnit": null,
+    "location": null,
+    "units": null,
+    "mqttUser": null,
+    "mqttPassword": null
+  },
+  "schema": {
+    "driver": "str",
+    "latitude": "float",
+    "longitude": "float",
+    "altitude": "int",
+    "altitudeUnit": "str",
+    "location": "str",
+    "units": "str",
+    "mqttUser": "str",
+    "mqttPassword": "str"
+  },
+  "devices": [ "/dev/bus/usb/001/004:/dev/bus/usb/001/004:rwm" ]
+}

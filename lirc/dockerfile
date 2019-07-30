@@ -1,0 +1,36 @@
+ARG BUILD_FROM
+FROM raspbian/stretch:latest
+
+# Default ENV
+ENV LANG C.UTF-8
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Base system
+ARG BASHIO_VERSION=0.3.2
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        bash \
+        jq \
+        tzdata \
+        curl \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    \
+    && mkdir -p /tmp/bashio \
+    && curl -L -s https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz | tar -xzf - --strip 1 -C /tmp/bashio \
+    && mv /tmp/bashio/lib /usr/lib/bashio \
+    && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
+    && rm -rf /tmp/bashio
+
+RUN apt-get update && apt-get install -y npm lirc
+
+RUN sudo npm install -g lirc2mqtt
+
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
+COPY TV.lircd.conf /etc/lirc/lircd.conf.d
+RUN chmod a+x /etc/lirc/lircd.conf.d/TV.lircd.conf
+
+CMD [ "/run.sh" ]

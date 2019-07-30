@@ -1,0 +1,20 @@
+{
+  "name": "LIRC",
+  "version": "0.26",
+  "slug": "hassio_lirc",
+  "description": "Hassio Add On for LIRC",
+  "arch": [ "armhf" ],
+  "startup": "before",
+  "boot": "auto",
+  "options": {
+    "mqttUser": null,
+    "mqttPassword": null
+  },
+  "schema": {
+    "mqttUser": "str",
+    "mqttPassword": "str"
+  },
+  "devices": [
+    "/dev/lirc0:/dev/lirc0:rwm"
+  ]
+}
