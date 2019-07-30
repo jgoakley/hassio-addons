@@ -23,7 +23,7 @@ https://github.com/jgoakley/hassio-addons
 
 ## Add-ons provided by this repository
 
-### LIRC
+## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
 
 #### Example configuration:
@@ -35,7 +35,7 @@ Uses the Linux Infrared Remote Control Library and MQTT to send and receive infr
 ```
 
 
-### WeeWX
+## WeeWX
 Uses the WeeWX Library and MQTT to receive data from a weather station.
 
 #### NOTE: In the config.json file for this add-on I am hardcoding the usb device: /dev/bus/usb/001/004. 
