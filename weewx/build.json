@@ -1,9 +1,9 @@
 {
     "build_from": {
-        "armv7": "armv7-base-ubuntu:latest",
-        "aarch64": "aarch64-base-ubuntu:latest",
-        "amd64": "amd64-base-ubuntu:latest",
-        "i386": "i386-base-ubuntu:latest"
+        "armv7": "armv7-base-ubuntu",
+        "aarch64": "aarch64-base-ubuntu",
+        "amd64": "amd64-base-ubuntu",
+        "i386": "i386-base-ubuntu"
     },
     "args": {}
 }
