@@ -12,7 +12,7 @@
   ],
   "startup": "application",
   "boot": "auto",
-  "usb": true
+  "usb": true,
   "options": {
     "driver": null,
     "latitude": null,
