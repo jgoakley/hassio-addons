@@ -1,7 +1,7 @@
 {
-  "name": "WeeWX2",
-  "version": "0.78",
-  "slug": "hassio_weewx2",
+  "name": "WeeWX",
+  "version": "0.79",
+  "slug": "hassio_weewx",
   "description": "Add-on for connecting weather stations to Hass.io using WeeWX and MQTT",
   "arch": [
     "armhf",
@@ -12,7 +12,6 @@
   ],
   "startup": "application",
   "boot": "auto",
-  "map": ["share"],
   "options": {
     "driver": null,
     "latitude": null,
