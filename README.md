@@ -7,11 +7,10 @@ This repository collects all of my Hass.io add-ons for easier installation.
 ## Disclaimer / Potential Issues
 
 I have no idea what I'm doing. These Add Ons are a some pet projects I've been working on in my spare time. Here's a couple of things that I think I'm doing wrong but not sure how to fix:
-1. These addons use base images from raspbian and hassioaddons. I think I should be creating images in dockerhub and using those. Not sure how to do that yet. As a result I think the installation of the add ons takes longer and uses more storage space than they otherwise would.
-2. I'm using third party libraries that could change at any time and potentially break stuff (ex. weewx and lirc). I think the solution may be to target specific versions.
-3. Speaking of third party libraries, I install npm for the sole purpose of grabbing the lirc2mqtt library. Probably a better approach there.
-4. I think there's a better way to set up the configuration options to indicate which fields are required. I'm pretty sure they are all required for everything to work, but some probably don't need to be required
-5. There's probably more stuff I'm doing wrong so feel free to create a pull request if you know the right way. Thanks!
+1. I'm using third party libraries that could change at any time and potentially break stuff (ex. weewx and lirc). I think the solution may be to target specific versions.
+2. Speaking of third party libraries, I install npm for the sole purpose of grabbing the lirc2mqtt library. Probably a better approach there.
+3. I think there's a better way to set up the configuration options to indicate which fields are required. I'm pretty sure they are all required for everything to work, but some probably don't need to be required
+4. There's probably more stuff I'm doing wrong so feel free to create a pull request if you know the right way. Thanks!
 
 
 ## Installation
