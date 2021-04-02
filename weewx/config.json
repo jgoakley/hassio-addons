@@ -3,6 +3,7 @@
   "version": "0.82",
   "slug": "hassio_weewx",
   "description": "Add-on for connecting weather stations to Hass.io using WeeWX and MQTT",
+  "url": "https://github.com/jgoakley/hassio-addons",
   "arch": [
     "armhf",
     "armv7",
