@@ -25,7 +25,14 @@ https://github.com/jgoakley/hassio-addons
 
 
 ## WeeWX
-Uses the WeeWX Library and MQTT to receive data from a weather station.
+Uses the WeeWX Library and MQTT to receive data from a weather station. Weather stations such as the AcuRite 01036M (the only one I have tested this with) have a USB B-mini port in the display unit that receives the signal from the weather station. Plugging a USB cable from the display into your Home Assistant machine should show a device when running the ```lsusb``` command. If you are using a Raspberry Pi you should be able to use the SSH addon to connect to your Home Assistant instance and run the command from there:
+
+```
+~$ lsusb
+Bus 002 Device 004: ID 24c0:0003
+```
+
+For my AcuRite weather station it shows up as "Chaney Instrument" in some utilities (but for some reason not the lsusb command)
 
 #### Example configuration:
 ```
@@ -146,7 +153,17 @@ sensor:
     value_template: "{{ value }}"
 ```
 
-I believe there are even more sensors values
+I believe there are even more sensors values that can be used but these are the ones that were useful to me. If everything is working correctly when the Addon is running every couple minutes or so you should receive a "loop" message in the log tab that looks like this:
+
+```
+LOOP:   2021-04-02 13:56:17 EDT (1617386177) appTemp: 40.7389595009, channel: None, cloudbase: 8387.86618664, dateTime: 1617386177, dewpoint: 13.4533887788, heatindex: 47.5, humidex: 47.5, maxSolarRad: None, outHumidity: 25, outTemp: 47.5, outTempBatteryStatus: 0, rainRate: 0, rssi: 3, rxCheckPercent: 100.0, sensor_battery: 0, sensor_id: 1392, usUnits: 1, windchill: 47.5, windSpeed: 2.16448979085
+REC:    2021-04-02 13:56:00 EDT (1617386160) altimeter: 30.5110888228, appTemp: 37.6812960635, barometer: 30.5393497982, channel: None, cloudbase: 8447.17015613, dateTime: 1617386160.0, dewpoint: 11.842451313, ET: None, heatindex: 46.15, humidex: 46.15, inTemp: 76.19, interval: 1, maxSolarRad: None, outHumidity: 24.5, outTemp: 46.15, outTempBatteryStatus: 0.0, pressure: 29.8123680055, rain: 0.0, rain_total: 6.5786, rainRate: 0.0, rssi: 3.0, rxCheckPercent: 100.0, sensor_battery: 0.0, sensor_id: 1392.0, usUnits: 1, windchill: 43.727635697, windDir: 225.0, windGust: 5.76509625064, windGustDir: None, windrun: 40.5201561234, windSpeed: 4.47916537214
+LOOP:   2021-04-02 13:56:17 EDT (1617386177) dateTime: 1617386177, maxSolarRad: None, rainRate: 0, usUnits: 1
+LOOP:   2021-04-02 13:56:35 EDT (1617386195) altimeter: 30.5110888228, channel: None, dateTime: 1617386195, inTemp: 76.19, maxSolarRad: None, outTempBatteryStatus: 0, pressure: 29.8123680055, rain: 0.0, rain_total: 6.5786, rainRate: 0, rssi: 3, rxCheckPercent: 100.0, sensor_battery: 0, sensor_id: 1392, usUnits: 1, windDir: 180.0, windSpeed: 1.65011743945
+LOOP:   2021-04-02 13:56:54 EDT (1617386214) appTemp: 41.7713672246, channel: None, cloudbase: 7999.15719039, dateTime: 1617386214, dewpoint: 15.4637083623, heatindex: 47.8, humidex: 47.8, maxSolarRad: None, outHumidity: 27, outTemp: 47.8, outTempBatteryStatus: 0, rainRate: 0, rssi: 3, rxCheckPercent: 100.0, sensor_battery: 0, sensor_id: 1392, usUnits: 1, windchill: 47.8, windSpeed: 1.13574508805
+```
+
+This is what I use to determine the MQTT sensor names that are available to use.
 
 ## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
