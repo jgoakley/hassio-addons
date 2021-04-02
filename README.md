@@ -42,6 +42,112 @@ Uses the WeeWX Library and MQTT to receive data from a weather station.
 }
 ```
 
+Here is an example of some Home Assistant configuration.yaml entries for sensors that can be used for an AcuRite 01036M weather station. Each sensor is published with the MQTT channel of "weather" and set to US units. These should probably be configurable and included in the settings above.
+
+```
+sensor:
+  - platform: mqtt
+    state_topic: "weather/windSpeed_mph"
+    name: "Wind Speed"
+    unit_of_measurement: 'mph'
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:weather-windy-variant"
+  - platform: mqtt
+    state_topic: "weather/windGust_mph"
+    name: "Wind Gust"
+    unit_of_measurement: 'mph'
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:weather-windy"
+  - platform: mqtt
+    state_topic: "weather/outTemp_F"
+    name: "Outdoor Temperature"
+    unit_of_measurement: 'F'
+    device_class: 'temperature'
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:thermometer"
+  - platform: mqtt
+    state_topic: "weather/humidex_F"
+    name: "Humidex"
+    unit_of_measurement: 'F'
+    device_class: 'temperature'
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:thermometer"
+  - platform: mqtt
+    state_topic: "weather/heatindex_F"
+    name: "Heat Index"
+    unit_of_measurement: 'F'
+    device_class: 'temperature'
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:thermometer"
+  - platform: mqtt
+    state_topic: "weather/outHumidity"
+    name: "Outdoor Humidity"
+    unit_of_measurement: '%'
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:water-percent"
+  - platform: mqtt
+    state_topic: "weather/barometer_inHg"
+    name: "Air Pressure"
+    unit_of_measurement: "inHg"
+    value_template: "{{ value | round(3) }}"
+    icon: "mdi:gauge"
+  - platform: mqtt
+    state_topic: "weather/windDir"
+    name: "Wind Direction"
+    unit_of_measurement: "degrees"
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:compass"
+  - platform: mqtt
+    state_topic: "weather/windGustDir"
+    name: "Wind Gust Direction"
+    unit_of_measurement: "degrees"
+    value_template: "{{ value | round(1) }}"
+    icon: "mdi:compass"
+  - platform: mqtt
+    state_topic: "weather/rainRate_inch_per_hour"
+    name: "Rain Rate"
+    unit_of_measurement: "in/hour"
+    value_template: "{{ value | round(4) }}"
+    icon: "mdi:weather-rainy"
+  - platform: mqtt
+    state_topic: "weather/rain_in"
+    name: "Rain"
+    unit_of_measurement: "in"
+    value_template: "{{ value | round(4) }}"
+    icon: "mdi:weather-rainy"
+  - platform: mqtt
+    state_topic: "weather/hourRain_in"
+    name: "Hour Rain"
+    unit_of_measurement: "in"
+    value_template: "{{ value | round(4) }}"
+    icon: "mdi:weather-rainy"
+  - platform: mqtt
+    state_topic: "weather/dayRain_in"
+    name: "Day Rain"
+    unit_of_measurement: "in"
+    value_template: "{{ value | round(4) }}"
+    icon: "mdi:weather-rainy"
+  - platform: mqtt
+    state_topic: "weather/rain24_in"
+    name: "24 Hour Rain"
+    unit_of_measurement: "in"
+    value_template: "{{ value | round(4) }}"
+    icon: "mdi:weather-rainy"
+  - platform: mqtt
+    state_topic: "weather/rain_total"
+    name: "Rain Total"
+    unit_of_measurement: "in"
+    value_template: "{{ value | multiply(0.3937) | round(4) }}"
+    icon: "mdi:weather-rainy"
+  - platform: mqtt
+    state_topic: "weather/dateTime"
+    name: "WeeWX Timestamp"
+    unit_of_measurement: "s"
+    value_template: "{{ value }}"
+```
+
+I believe there are even more sensors values
+
 ## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
 
