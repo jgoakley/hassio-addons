@@ -42,7 +42,7 @@ Uses the WeeWX Library and MQTT to receive data from a weather station.
 }
 ```
 
-Here is an example of some Home Assistant configuration.yaml entries for sensors that can be used for an AcuRite 01036M weather station. Each sensor is published with the MQTT channel of "weather" and set to US units. These should probably be configurable and included in the settings above.
+Here is an example of some Home Assistant configuration.yaml entries for sensors that can be used for an AcuRite 01036M weather station. Each sensor is published with the MQTT channel of "weather" and set to US units. These should probably be configurable and included in the settings above but I haven't got around to that yet.
 
 ```
 sensor:
