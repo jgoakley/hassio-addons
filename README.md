@@ -23,17 +23,6 @@ https://github.com/jgoakley/hassio-addons
 
 ## Add-ons provided by this repository
 
-## LIRC
-Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
-
-#### Example configuration:
-```
-{
-  "mqttUser": "MQTTUserName",
-  "mqttPassword": "MQTTPassword"
-}
-```
-
 
 ## WeeWX
 Uses the WeeWX Library and MQTT to receive data from a weather station.
@@ -48,6 +37,19 @@ Uses the WeeWX Library and MQTT to receive data from a weather station.
   "altitudeUnit": "foot",
   "location": "Location String for WeeWX",
   "units": "us",
+  "mqttUser": "MQTTUserName",
+  "mqttPassword": "MQTTPassword"
+}
+```
+
+## LIRC
+Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
+
+** Update: I don't think this installs with current versions of Home Assistant (Anything newer than mid-2019). I no longer use a Raspberry Pi to host Home Assistant (I use a Linux server with a KVM virtual machine) and I have not attempted to get this working on any hardware other than the Raspberry Pi GPIO. Leaving here in case it is helpful for anyone **
+
+#### Example configuration:
+```
+{
   "mqttUser": "MQTTUserName",
   "mqttPassword": "MQTTPassword"
 }
