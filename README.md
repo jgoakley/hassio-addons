@@ -163,7 +163,7 @@ LOOP:   2021-04-02 13:56:35 EDT (1617386195) altimeter: 30.5110888228, channel: 
 LOOP:   2021-04-02 13:56:54 EDT (1617386214) appTemp: 41.7713672246, channel: None, cloudbase: 7999.15719039, dateTime: 1617386214, dewpoint: 15.4637083623, heatindex: 47.8, humidex: 47.8, maxSolarRad: None, outHumidity: 27, outTemp: 47.8, outTempBatteryStatus: 0, rainRate: 0, rssi: 3, rxCheckPercent: 100.0, sensor_battery: 0, sensor_id: 1392, usUnits: 1, windchill: 47.8, windSpeed: 1.13574508805
 ```
 
-This is what I use to determine the MQTT sensor names that are available to use.
+This is what I use to determine the MQTT sensor names that are available to use. I believe the "loop" messages are sensor values that are being broadcast from the weather station to the display. I think these are broadcast at varying intervals based on how often specific sensors are updated. The "rec" values happen every 60 seconds and are WeeWX recording the values it has received to their destination, in this case publishing to MQTT.
 
 ## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
