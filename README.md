@@ -164,6 +164,77 @@ LOOP:   2021-04-02 13:56:54 EDT (1617386214) appTemp: 41.7713672246, channel: No
 
 This is what I use to determine the MQTT sensor names that are available to use. I believe the "loop" messages are sensor values that are being broadcast from the weather station to the display. I think these are broadcast at varying intervals based on how often specific sensors are updated. The "rec" values happen every 60 seconds and are WeeWX recording the values it has received to their destination, in this case publishing to MQTT.
 
+### Issues with Weather Station USB Randomly Disconnecting
+
+With KVM on Ubuntu I had an issue where every couple weeks or so the Weather Station USB device would no longer show up. I couldn't figure out why it was happening so I added some automation to reattach the USB device when it disconnects.
+
+#### Binary Sensor - Weather Station Connected (in Configuration.yaml)
+```
+binary_sensor:
+  - platform: command_line
+    name: Weather Station Connected
+    command: "lsusb | grep 24c0:0003 | wc -l"
+    payload_on: 1
+    payload_off: 0
+```
+
+#### Shell Command - Detach/Reattach Weather Station (in Configuration.yaml)
+
+For this to work you need to set up the ability for HomeAssistant to make SSH connections to your server. I used this guide to do that: https://siytek.com/home-assistant-shell/
+
+```
+shell_command:
+  detach_weatherstation: ssh -i /config/ssh <your-user>@<your-linux-server-ip-address> -o 'StrictHostKeyChecking=no' "LIBVIRT_DEFAULT_URI=qemu:///system virsh detach-device <Home-Assistant-VM-Name> /home/<your-user>/weatherstation.xml"
+  attach_weatherstation: ssh -i /config/ssh <your-user>@<your-linux-server-ip-address> -o 'StrictHostKeyChecking=no' "LIBVIRT_DEFAULT_URI=qemu:///system virsh attach-device <Home-Assistant-VM-Name> /home/<your-user>/weatherstation.xml"
+```
+
+#### weatherstation.xml (on Linux computer running KVM - I stored mine in my user's home directory)
+
+You may have to change the bus and port number to match
+```
+<hostdev mode="subsystem" type="usb" managed="yes">
+  <source>
+    <vendor id="0x24c0"/>
+    <product id="0x0003"/>
+  </source>
+  <alias name="hostdev0"/>
+  <address type="usb" bus="0" port="5"/>
+</hostdev>
+```
+
+#### Automation YAML
+```
+alias: Reattach Weather Station
+description: ''
+trigger:
+  - platform: state
+    entity_id: binary_sensor.weather_station_connected
+    to: 'off'
+  - platform: time_pattern
+    seconds: '0'
+condition:
+  - condition: state
+    entity_id: binary_sensor.weather_station_connected
+    state: 'off'
+action:
+  - service: shell_command.detach_weatherstation
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: shell_command.attach_weatherstation
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: hassio.addon_restart
+    data:
+      addon: 10409bfc_hassio_weewx
+mode: single
+```
+
 ## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
 
