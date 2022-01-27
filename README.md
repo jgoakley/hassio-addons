@@ -166,7 +166,7 @@ This is what I use to determine the MQTT sensor names that are available to use.
 
 ### Issues with Weather Station USB Randomly Disconnecting
 
-With KVM on Ubuntu I had an issue where every couple weeks or so the Weather Station USB device would no longer show up. I couldn't figure out why it was happening so I added some automation to reattach the USB device when it disconnects.
+With KVM on Ubuntu I had an issue where every couple weeks or so KVM would stop passing the Weather Station USB device through to the VM. I couldn't figure out why it was happening so I added some automation to reattach the USB device when it disconnects.
 
 #### Binary Sensor - Weather Station Connected (in Configuration.yaml)
 ```
