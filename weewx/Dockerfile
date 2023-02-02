@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 RUN apt-get update
 
 RUN apt-get install -y sqlite3 wget sudo \
-         python3 python3-configobj python3-cheetah python3-pil python3-usb python3-setuptools \
+         python3 python-is-python3 python3-configobj python3-cheetah python3-pil python3-usb python3-setuptools \
          supervisor tzdata jq
 
 RUN wget http://weewx.com/downloads/released_versions/weewx-4.10.1.tar.gz -O /tmp/weewx.tgz && \
