@@ -18,9 +18,9 @@ RUN wget https://github.com/eclipse/paho.mqtt.python/archive/v1.4.0.tar.gz -O /t
       tar zxvf /tmp/mqtt.tgz && \
       cd paho.mqtt.python-* ; sudo python setup.py build ; sudo python setup.py install
 
-RUN wget http://lancet.mit.edu/mwall/projects/weather/releases/weewx-mqtt-0.19.tgz -O /tmp/weewx-mqtt.tgz && \
+RUN wget https://github.com/matthewwall/weewx-mqtt/archive/master.zip -O /tmp/weewx-mqtt.zip && \
       cd /tmp && \
-      /home/weewx/bin/wee_extension --install weewx-mqtt.tgz
+      /home/weewx/bin/wee_extension --install weewx-mqtt.zip
 
 # Copy data for add-on
 COPY run.sh /
