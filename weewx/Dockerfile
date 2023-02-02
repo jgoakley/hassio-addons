@@ -3,8 +3,6 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-RUN add-apt-repository universe
-
 RUN apt-get update
 
 RUN apt-get install -y sqlite3 wget sudo \
