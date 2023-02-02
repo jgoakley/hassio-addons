@@ -9,7 +9,7 @@ RUN apt-get install -y sqlite3 wget sudo \
          python-is-python3 python3-configobj python3-cheetah python3-pil python3-usb python3-setuptools \
          supervisor tzdata jq
 
-RUN wget http://weewx.com/downloads/released_versions/weewx-4.10.1.tar.gz -O /tmp/weewx.tgz && \
+RUN wget http://weewx.com/downloads/released_versions/weewx-4.8.0.tar.gz -O /tmp/weewx.tgz && \
       cd /tmp && \
       tar zxvf /tmp/weewx.tgz && \
       cd weewx-* ; ./setup.py build ; ./setup.py install --no-prompt
