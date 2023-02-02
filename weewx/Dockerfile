@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 RUN apt-get update
 
 RUN apt-get install -y sqlite3 wget sudo \
-         python python-pip python-cheetah python-pil python-usb python-setuptools \
+         python3-pip python-cheetah python-pil python-usb python-setuptools \
          supervisor tzdata jq
 
 RUN pip install configobj
