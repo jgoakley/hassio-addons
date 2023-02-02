@@ -25,6 +25,6 @@ RUN wget https://github.com/matthewwall/weewx-mqtt/archive/master.zip -O /tmp/we
 
 # Copy data for add-on
 COPY run.sh /
-RUN chmod a+x /run.sh
+RUN chmod 777 /run.sh
 
 CMD [ "/run.sh" ]
