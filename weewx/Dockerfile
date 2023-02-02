@@ -14,10 +14,10 @@ RUN wget http://weewx.com/downloads/released_versions/weewx-4.10.1.tar.gz -O /tm
       tar zxvf /tmp/weewx.tgz && \
       cd weewx-* ; ./setup.py build ; ./setup.py install --no-prompt
 
-RUN wget https://github.com/eclipse/paho.mqtt.python/archive/v1.4.0.tar.gz -O /tmp/mqtt.tgz && \
+RUN wget https://github.com/eclipse/paho.mqtt.python/archive/v1.6.1.tar.gz -O /tmp/mqtt.tgz && \
       cd /tmp && \
       tar zxvf /tmp/mqtt.tgz && \
-      cd paho.mqtt.python-* ; sudo python setup.py build ; sudo python setup.py install
+      cd paho.mqtt.python-* ; sudo python3 setup.py build ; sudo python3 setup.py install
 
 RUN wget https://github.com/matthewwall/weewx-mqtt/archive/master.zip -O /tmp/weewx-mqtt.zip && \
       cd /tmp && \
