@@ -8,7 +8,7 @@ RUN apt-get update \
          python-configobj python-cheetah python-pil python-usb python-setuptools \
          supervisor tzdata jq
 
-RUN wget http://weewx.com/downloads/released_versions/weewx-3.9.1.tar.gz -O /tmp/weewx.tgz && \
+RUN wget http://weewx.com/downloads/released_versions/weewx-4.10.1.tar.gz -O /tmp/weewx.tgz && \
       cd /tmp && \
       tar zxvf /tmp/weewx.tgz && \
       cd weewx-* ; ./setup.py build ; ./setup.py install --no-prompt
