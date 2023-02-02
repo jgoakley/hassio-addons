@@ -6,7 +6,7 @@ ENV LANG C.UTF-8
 RUN apt-get update
 
 RUN apt-get install -y sqlite3 wget sudo \
-         python-is-python3 python3-configobj python3-cheetah python3-pil python3-usb python3-setuptools \
+         python-configobj python-cheetah python-pil python-usb python-setuptools \
          supervisor tzdata jq
 
 RUN wget http://weewx.com/downloads/released_versions/weewx-3.9.1.tar.gz -O /tmp/weewx.tgz && \
@@ -17,7 +17,7 @@ RUN wget http://weewx.com/downloads/released_versions/weewx-3.9.1.tar.gz -O /tmp
 RUN wget https://github.com/eclipse/paho.mqtt.python/archive/v1.6.1.tar.gz -O /tmp/mqtt.tgz && \
       cd /tmp && \
       tar zxvf /tmp/mqtt.tgz && \
-      cd paho.mqtt.python-* ; sudo python3 setup.py build ; sudo python3 setup.py install
+      cd paho.mqtt.python-* ; sudo python setup.py build ; sudo python setup.py install
 
 RUN wget https://github.com/matthewwall/weewx-mqtt/archive/master.zip -O /tmp/weewx-mqtt.zip && \
       cd /tmp && \
