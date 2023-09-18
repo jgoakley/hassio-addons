@@ -1,0 +1,7 @@
+build_from:
+  aarch64: ghcr.io/home-assistant/home-assistant:stable
+  amd64: ghcr.io/home-assistant/home-assistant:stable
+  armhf: ghcr.io/home-assistant/home-assistant:stable
+  armv7: ghcr.io/home-assistant/home-assistant:stable
+  i386: ghcr.io/home-assistant/home-assistant:stable
+squash: false

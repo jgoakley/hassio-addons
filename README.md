@@ -227,6 +227,18 @@ action:
 mode: single
 ```
 
+## Hassception
+This addon lets you run Home Assistant inside Home Assistant! Home Assistant Inception!
+
+If you are running Home Assistant OS this addon will create an entirely new Home Assistant core instance that runs alongside your existing instance.
+
+By default the new instance will be available at <your_ha_address>:8124 but the port can be updated in the configuration tab.
+
+#### Current Issues:
+
+##### You will need to create a ```hassception``` folder in your ```config``` directory which is where your new instance configuration will be stored
+
+
 ## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
 
