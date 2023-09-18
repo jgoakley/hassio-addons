@@ -22,10 +22,6 @@ If you are running Home Assistant OS this addon will create an entirely new Home
 
 By default the new instance will be available at <your_ha_address>:8124 but the port can be updated in the configuration tab.
 
-#### Current Issues:
-
-You will need to manually create a ```hassception``` folder in your ```config``` directory which is where your new instance configuration will be stored
-
 #### Why would I want to do this?
 
 Since Home Assistant does not currently have a great way to create user-specific dashboards this allows you to customize a separate HA instance for another set of users.
