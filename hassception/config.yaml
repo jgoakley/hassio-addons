@@ -12,6 +12,7 @@ arch:
 ingress: true
 ingress_port: 8123
 ports:
-  8123/tcp: 8124
+  8123/tcp: null
+
 map:
   - "config:rw"
