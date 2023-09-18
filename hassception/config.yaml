@@ -1,6 +1,6 @@
 name: "Hassception"
 description: "Home Assistant inside Home Assistant!"
-version: "1.0.29"
+version: "1.0.30"
 slug: "hassception"
 init: false
 arch:
@@ -9,10 +9,8 @@ arch:
   - armhf
   - armv7
   - i386
-ingress: true
-ingress_port: 8999
 ports:
-  8999/tcp: 8999
+  8123/tcp: 8214
 
 map:
   - "config:rw"
