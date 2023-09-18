@@ -1,6 +1,6 @@
 name: "Hassception"
 description: "Home Assistant inside Home Assistant!"
-version: "1.0.22"
+version: "1.0.23"
 slug: "hassception"
 init: false
 arch:
