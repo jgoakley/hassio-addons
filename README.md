@@ -15,6 +15,25 @@ https://github.com/jgoakley/hassio-addons
 ## Add-ons provided by this repository
 
 
+## Hassception
+This addon lets you run Home Assistant inside Home Assistant! Home Assistant Inception!
+
+If you are running Home Assistant OS this addon will create an entirely new Home Assistant core instance that runs alongside your existing instance.
+
+By default the new instance will be available at <your_ha_address>:8124 but the port can be updated in the configuration tab.
+
+#### Current Issues:
+
+You will need to manually create a ```hassception``` folder in your ```config``` directory which is where your new instance configuration will be stored
+
+#### Why would I want to do this?
+
+Since Home Assistant does not currently have a great way to create user-specific dashboards this allows you to customize a separate HA instance for another set of users.
+
+For example: You host an Airbnb and would like to give a guest the ability to control a subset of smart home devices but you would like to retain a separate dashboard with full control.
+
+
+
 ## WeeWX
 Uses the WeeWX Library and MQTT to receive data from a weather station. Weather stations such as the AcuRite 01036M (the only one I have tested this with) have a USB B-mini port in the display unit that receives the signal from the weather station. Plugging a USB cable from the display into your Home Assistant machine should show a device when running the ```lsusb``` command. If you are using a Raspberry Pi you should be able to use the SSH addon to connect to your Home Assistant instance and run the command from there:
 
@@ -226,18 +245,6 @@ action:
       addon: 10409bfc_hassio_weewx
 mode: single
 ```
-
-## Hassception
-This addon lets you run Home Assistant inside Home Assistant! Home Assistant Inception!
-
-If you are running Home Assistant OS this addon will create an entirely new Home Assistant core instance that runs alongside your existing instance.
-
-By default the new instance will be available at <your_ha_address>:8124 but the port can be updated in the configuration tab.
-
-#### Current Issues:
-
-##### You will need to manually create a ```hassception``` folder in your ```config``` directory which is where your new instance configuration will be stored
-
 
 ## LIRC
 Uses the Linux Infrared Remote Control Library and MQTT to send and receive infrared commands with a Raspberry Pi.
