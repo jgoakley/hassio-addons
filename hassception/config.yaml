@@ -10,9 +10,10 @@ arch:
   - armv7
   - i386
 ingress: true
-ingress_port: 8123
+ingress_port: 8124
 ports:
-  8123/tcp: null
+  8123/tcp: 8124
+  8124/tcp: null
 
 map:
   - "config:rw"
