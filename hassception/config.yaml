@@ -10,7 +10,7 @@ arch:
   - armv7
   - i386
 ports:
-  8123/tcp: 8214
+  8123/tcp: 8124
 
 map:
   - "config:rw"
