@@ -236,7 +236,7 @@ By default the new instance will be available at <your_ha_address>:8124 but the 
 
 #### Current Issues:
 
-##### You will need to create a ```hassception``` folder in your ```config``` directory which is where your new instance configuration will be stored
+##### You will need to manually create a ```hassception``` folder in your ```config``` directory which is where your new instance configuration will be stored
 
 
 ## LIRC
